@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.input {
+  border: 1px solid #e7e7e7;
+  border-radius: 4px; 
+  width: 100%;  
+  padding: 8px;  
+  margin-top: 4px;  
+}
