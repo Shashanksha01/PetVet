@@ -9,7 +9,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
+      <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-[#ADADAD] ">
         <p
           className="text-2xl text-maincolor font-bold cursor-pointer"
           onClick={() => navigate("/")}
@@ -94,13 +94,18 @@ const NavBar = () => {
             </button>
           )}
         </div>
-        <img src={assets.menu_icon} className="w-6 md:hidden" alt="" />
+        <img
+          onClick={() => setShowMenu(true)}
+          src={assets.menu_icon}
+          className="w-6 md:hidden"
+          alt=""
+        />
         <div
           className={` ${
             showMenu ? "fixed w-full" : "h-0 w-0"
           } md:hidden top-0 right-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}
         >
-          <div>
+          <div className="flex justify-between items-center px-5 py-5">
             <p
               className="text-2xl text-maincolor font-bold cursor-pointer"
               onClick={() => navigate("/")}
@@ -108,16 +113,49 @@ const NavBar = () => {
               PetVet
             </p>
             <img
+              className="w-9"
               onClick={() => setShowMenu(false)}
               src={assets.cross_icon}
               alt=""
             />
           </div>
-          <ul>
-            <NavLink>HOME</NavLink>
-            <NavLink>ALL DOCTORS</NavLink>
-            <NavLink>ABOUT</NavLink>
-            <NavLink>CONTACT</NavLink>
+          <ul className="flex flex-col items-center gap-3 mt-5 mx-5 text-lg font-medium">
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-maincolor" : "text-black"
+              }
+            >
+              HOME
+            </NavLink>
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/doctors"
+              className={({ isActive }) =>
+                isActive ? "text-maincolor" : "text-black"
+              }
+            >
+              ALL DOCTORS
+            </NavLink>
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "text-maincolor" : "text-black"
+              }
+            >
+              ABOUT
+            </NavLink>
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "text-maincolor" : "text-black"
+              }
+            >
+              CONTACT
+            </NavLink>
           </ul>
           <div></div>
         </div>
